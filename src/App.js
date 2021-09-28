@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+//import './App.css';
+
+import React from 'react';
+import ExampleReactVisForce from './graph/react-vis-force-graph'
+import ExampleD3 from './graph/d3-graph';
+import data from "./data/data.json";
+
+export type Data = {
+  nodes: any[];
+  relationships: any[];
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ExampleReactVisForce data={data} width={500} height={340} />
+      <ExampleD3 data={data} width={500} height={340} />
+      <pre style={{ maxHeight: "300px" }}>
+        {JSON.stringify(data, undefined, 2)}
+      </pre>
+      ;
     </div>
   );
 }
